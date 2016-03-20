@@ -1,0 +1,30 @@
+---
+- name: Install ntp apt packages
+  register: _datetime_apt_updated
+  apt:
+    pkg: 'ntp'
+    state: present
+
+- name: Configure ntp
+  template:
+    src: ntp.conf
+    dest: /etc/ntp.conf
+  notify: restart ntp
+
+- name: Ensure ntp always runs
+  service:
+    name: ntp
+    state: started
+    enabled: yes
+
+- name: Force time sync once (even when more than 1000 seconds difference)
+  shell: ntpd -g
+  when: _datetime_apt_updated.changed
+  ignore_errors: true
+  changed_when: false
+
+- name: Write to hardware clock
+  shell: hwclock --systohc
+  when: _datetime_apt_updated.changed and datetime_sync_hardware_clock
+  ignore_errors: true
+  changed_when: false
