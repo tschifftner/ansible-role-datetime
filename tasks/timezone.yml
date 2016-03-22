@@ -3,7 +3,7 @@
   apt:
     pkg: tzdata
     state: present
-
+- debug: msg="{{ansible_date_time.tz}} != {{datetime_timezone}}"
 - name: Set timezone variables
   notify: update timezone
   copy:
@@ -19,8 +19,6 @@
   file:
     src: '/usr/share/zoneinfo/{{ datetime_timezone }}'
     dest: '/etc/localtime'
-    state: link
-    force: yes
     owner: root
     group: root
     mode: '0644'
