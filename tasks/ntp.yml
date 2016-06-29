@@ -21,13 +21,13 @@
     enabled: yes
 
 - name: Force time sync once (even when more than 1000 seconds difference)
-  shell: ntpd -g
+  command: ntpd -g
   when: _datetime_apt_updated.changed
   ignore_errors: true
   changed_when: false
 
 - name: Write to hardware clock
-  shell: hwclock --systohc
+  command: hwclock --systohc
   when: _datetime_apt_updated.changed and datetime_sync_hardware_clock
   ignore_errors: true
   changed_when: false
