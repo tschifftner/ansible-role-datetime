@@ -62,10 +62,8 @@ $ ansible-galaxy install tschifftner.datetime
 
 Ansible          | Debian Jessie    | Ubuntu 14.04    | Ubuntu 12.04
 :--------------: | :--------------: | :-------------: | :-------------: 
-1.7              | Yes              | Yes             | Yes
-1.8              | Yes              | Yes             | Yes
-1.9              | Yes              | Yes             | Yes
 2.0*             | Yes              | Yes             | Yes
+2.1              | Yes              | Yes             | Yes
 
 *) 2.0.0.0, 2.0.0.1, 2.0.0.2 are not supported!
 
