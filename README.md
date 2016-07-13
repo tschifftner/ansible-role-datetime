@@ -73,4 +73,4 @@ MIT / BSD
 
 ## Author Information
 
- - Tobias Schifftner, @tschifftner
+ - [Tobias Schifftner](https://twitter.com/tschifftner), [ambimax® GmbH](https://www.ambimax.de)
