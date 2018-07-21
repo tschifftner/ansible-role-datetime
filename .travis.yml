@@ -32,7 +32,6 @@ script:
 
   # Check timezone
   - ${DOCKER} cat /etc/timezone | grep 'Europe/Berlin'
-  - ${DOCKER} readlink /etc/localtime | grep 'Europe/Berlin'
 
 
 after_failure:
