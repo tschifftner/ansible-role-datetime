@@ -3,6 +3,7 @@
   apt:
     pkg: tzdata
     state: present
+    cache_valid_time: 86400
 
 - name: Output defined timezone compared to local timezone
   debug:

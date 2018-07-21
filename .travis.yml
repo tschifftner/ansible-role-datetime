@@ -34,16 +34,16 @@ script:
   - ${DOCKER} ntpstat | grep 'synchronised to NTP server'
 
   # Check timezone
-  - ${DOCKER} /etc/timezone | grep 'Europe/Berlin'
+  - ${DOCKER} cat /etc/timezone | grep 'Europe/Berlin'
   - ${DOCKER} readlink /etc/localtime | grep 'Europe/Berlin'
 
 
 after_failure:
-  - ${DOCKER} curl http://localhost/
-  - ${DOCKER} curl http://localhost/app.php/user/login
-  - ${DOCKER} service nginx status
-  - ${DOCKER} service mysql status
-  - ${DOCKER} service php7-fpm status
+  - ${DOCKER} systemctl --no-pager status ntp
+  - ${DOCKER} ntpstat
+  - cat /etc/timezone
+  - readlink /etc/localtime
+
 
 notifications:
   slack: ambimax:2MlPTX9bY9aPxCPhJGxHKIT6
