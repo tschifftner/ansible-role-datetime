@@ -5,7 +5,8 @@
     state: present
 
 - name: Output defined timezone compared to local timezone
-  debug: msg="{{ansible_date_time.tz}} != {{datetime_timezone}}"
+  debug:
+    msg: "{{ansible_date_time.tz}} != {{datetime_timezone}}"
 
 - name: Set timezone variables
   notify: update timezone

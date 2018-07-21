@@ -1,13 +1,12 @@
 # Ansible Role: Install DateTime
 
-[![Build Status](https://travis-ci.org/tschifftner/ansible-role-datetime.svg)](https://travis-ci.org/tschifftner/ansible-role-datetime)
+[![Build Status](https://travis-ci.org/tschifftner/ansible-role-datetime.svg?branch=master)](https://travis-ci.org/tschifftner/ansible-role-datetime)
 
 Installs and configures ntp and defines timezone on Debian/Ubuntu linux servers.
 
 ## Requirements
 
-PHP must be installed prior to running this role!
-ansible 1.8+
+None
 
 ## Role Variables
 
@@ -54,18 +53,22 @@ $ ansible-galaxy install tschifftner.datetime
 
 ## Example Playbook
 
-    - hosts: server
-      roles:
-        - { role: tschifftner.datetime }
+```
+- hosts: server
+  roles:
+    - { role: tschifftner.datetime }
+```
 
 ## Supported OS
 
-Ansible          | Debian Jessie    | Ubuntu 14.04    | Ubuntu 12.04
-:--------------: | :--------------: | :-------------: | :-------------: 
-2.0*             | Yes              | Yes             | Yes
-2.1              | Yes              | Yes             | Yes
+ - Debian 9 (Stretch)
+ - Debian 8 (Jessie)
+ - Ubuntu 18.04 (Bionic Beaver)
+ - Ubuntu 16.04 (Xenial Xerus)
+ 
+## Required ansible version
 
-*) 2.0.0.0, 2.0.0.1, 2.0.0.2 are not supported!
+Ansible 2.5+
 
 ## License
 

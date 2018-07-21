@@ -25,3 +25,7 @@ datetime_timezone: 'Europe/Berlin'
 
 # Monit
 datetime_enable_monit_check: true
+
+datetime_apt_packages:
+  - ntp
+  - ntpstat
