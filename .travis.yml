@@ -27,6 +27,8 @@ script:
   # Run tests.
   - ${PWD}/tests/test.sh
 
+  - sleep 60
+
   # Make sure mariadb service is running
   - ${DOCKER} systemctl --no-pager status ntp | grep "running"
 
@@ -43,6 +45,11 @@ after_failure:
   - ${DOCKER} ntpstat
   - cat /etc/timezone
   - readlink /etc/localtime
+  - sleep 60
+  - ${DOCKER} ntpstat
+  - cat /etc/timezone
+  - readlink /etc/localtime
+
 
 
 notifications:
