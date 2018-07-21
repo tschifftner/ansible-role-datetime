@@ -4,8 +4,8 @@ datetime_ntp_config_server: [ '0.de.pool.ntp.org', '1.de.pool.ntp.org', '2.de.po
 
 # Access control configuration; see /usr/share/doc/ntp-doc/html/accopt.html
 datetime_ntp_config_restrict:
-- '-4 default kod notrap nomodify nopeer noquery'
-- '-6 default kod notrap nomodify nopeer noquery'
+- 'default limited kod notrap nomodify nopeer noquery'
+- '-6 default limited kod notrap nomodify nopeer noquery'
 - '127.0.0.1'
 - '::1'
 
