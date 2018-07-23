@@ -1,3 +1,6 @@
 
-- include: timezone.yml
-- include: ntp.yml
+- name: Handle timezone
+  include: timezone.yml
+
+- name: Handle ntp
+  include: ntp.yml

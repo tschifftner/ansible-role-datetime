@@ -1,9 +1,10 @@
 ---
 - name: Install ntp apt packages
-  register: _datetime_apt_updated
   apt:
-    pkg: 'ntp'
+    pkg: '{{ item }}'
     state: present
+    cache_valid_time: 86400
+  with_items: '{{ datetime_apt_packages }}'
 
 - name: Configure ntp
   template:
@@ -21,13 +22,12 @@
     enabled: yes
 
 - name: Force time sync once (even when more than 1000 seconds difference)
-  command: ntpd -g
-  when: _datetime_apt_updated.changed
+  command: ntpd -g -q
   ignore_errors: true
   changed_when: false
 
 - name: Write to hardware clock
   command: hwclock --systohc
-  when: _datetime_apt_updated.changed and datetime_sync_hardware_clock
+  when: datetime_sync_hardware_clock
   ignore_errors: true
   changed_when: false

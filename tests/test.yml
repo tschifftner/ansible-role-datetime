@@ -3,4 +3,4 @@
   become: true
 
   roles:
-    - ansible-role-datetime
+    - role_under_test
